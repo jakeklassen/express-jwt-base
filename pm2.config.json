@@ -1,0 +1,5 @@
+{
+	"name": "express-jwt-example",
+	"script": "index.js",
+	"node_args": ["--debug=5858"]
+}

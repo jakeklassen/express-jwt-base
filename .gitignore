@@ -1,1 +1,5 @@
 node_modules
+*.log
+
+# Should be ignored! Left out to show example
+# .env

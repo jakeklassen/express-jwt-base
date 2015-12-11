@@ -4,7 +4,8 @@
   "description": "Base using express and json web tokens with some example routes",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "DEBUG=app:* node index.js",
+    "test": "./node_modules/.bin/mocha -r dotenv/config -r co-mocha test/**/*.js"
   },
   "keywords": [
     "jwt",
@@ -15,11 +16,23 @@
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.14.1",
+    "debug": "^2.2.0",
+    "dotenv": "^1.2.0",
     "express": "^4.13.3",
+    "express-jwt": "^3.3.0",
     "jsonwebtoken": "^5.4.1",
     "kerberos": "0.0.17",
-    "mongodb": "^2.0.48",
+    "lodash": "^3.10.1",
     "mongoose": "^4.2.6",
-    "morgan": "^1.6.1"
+    "morgan": "^1.6.1",
+    "wrap-fn": "^0.1.4"
+  },
+  "devDependencies": {
+    "co-mocha": "^1.1.2",
+    "expect": "^1.13.2",
+    "faker": "^3.0.1",
+    "mocha": "^2.3.4",
+    "monky": "^0.6.8",
+    "supertest": "^1.1.0"
   }
 }

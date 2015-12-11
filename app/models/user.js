@@ -4,15 +4,11 @@ const bcrypt = require('bcrypt-nodejs');
 
 // Schema
 const UserSchema = new mongoose.Schema({
-	name: {
-		type: String,
-		required: true
-	},
-
-	email: {
+	username: {
 		type: String,
 		unique: true,
-		required: true
+		required: true,
+		match: /^[a-zA-Z]+[a-zA-Z0-9]{2,20}$/
 	},
 
 	password: {
@@ -38,10 +34,14 @@ UserSchema.pre('save', function (next) {
 	});
 });
 
+// Statics
+
+UserSchema.statics.viewModelFields = ['_id', 'username'];
+UserSchema.statics.updateSafeFields = ['username', 'password'];
+
 // Methods
 UserSchema.methods.comparePassword = function (password) {
-	const user = this;
-	return bcrypt.compareSync(password, user.password);
+	return bcrypt.compareSync(password, this.password);
 };
 
 // Export model
