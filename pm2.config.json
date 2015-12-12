@@ -1,5 +1,6 @@
 {
 	"name": "express-jwt-example",
 	"script": "index.js",
-	"node_args": ["--debug=5858"]
+	"node_args": ["--debug=5858"],
+	"watch": true
 }
